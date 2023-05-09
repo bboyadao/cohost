@@ -7,9 +7,14 @@ class RoomManager(models.Manager):
 		return super(RoomManager, self).get_queryset()
 
 	def available(self, date_in, date_out):
-		return self.get_queryset().exclude(
-				Q(
-					Q(reserve__checkin_at__lte=date_in) & Q(reserve__checkout_at__gte=date_in) |
-					Q(reserve__checkin_at__lte=date_out) & Q(reserve__checkout_at__gte=date_out)
+		"""
+		list available room by datetime range handle gap and full range
+		"""
+		if date_out > date_in:
+			return self.get_queryset().filter(
+
+				Q(reserve=None) | Q(
+					Q(reserve__checkout_at__lt=date_in) & Q(reserve__checkin_at__lt=date_out)
 				)
-		)
+			)
+		raise ValueError("")
