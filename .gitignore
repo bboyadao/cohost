@@ -1,0 +1,13 @@
+__pycache__
+staticfiles
+*.pyc
+storage/*
+__pycache__/
+.idea/
+**/local.py
+
+celerybeat-schedule
+/htmlcov/
+/.mypy_cache/
+/out/
+.coverage
