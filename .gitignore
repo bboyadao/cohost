@@ -1,5 +1,4 @@
 __pycache__
-staticfiles
 *.pyc
 storage/*
 __pycache__/
