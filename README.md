@@ -1,5 +1,5 @@
 ---
-### Dev.
+## Dev.
 #### Install tool.
 ```shell
 pip install poetry
@@ -23,10 +23,21 @@ python manage.py runserver
 #### Manual test.
 Navigate to [http://localhost:8000/admin/](http://localhost:8000/admin/) with credential `admin | admin123`
 
+#### Docker(optional).
+#### Build.
+```shell
+docker build -t bookit:latest -f Dockerfile .
+```
+
+#### Run.
+```shell
+docker run -ti -p 8000:8000 bookit
+```
+
 ## Test reserve and room.
 
 ## Reserve.
-Simple demo by Admin built-in.
+Quick demo by Admin built-in.
 ![](docs/imgs/Screenshot_2023-05-10-03:17:41-1683663461.png)
 
 #### Check overlap.
@@ -48,3 +59,10 @@ Simple demo by Admin built-in.
 
 #### Full range from 12-31 May.
 ![](docs/imgs/Screenshot_2023-05-10-04:11:03-1683666663.png)
+
+## Code.
+
+2 main things are located in models file `cohost/reserve/models.py` \
+specific to `Reserve.clean` and `Room.objects.available`
+
+## Thanks!
